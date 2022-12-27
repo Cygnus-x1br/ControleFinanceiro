@@ -1,0 +1,87 @@
+<div class="container">
+
+    <h3 class="teal-text darken-4-text" style="font-weight:lighter;">Inclui novo lançamento</h3>
+
+
+    <form action="getDataAccount" method="post">
+        <div class="row">
+
+            <label class="input-field col s2">
+                <input class="with-gap" name="movement_type" type="radio" value="D" />
+                <span>Débito</span>
+            </label>
+            <label class="input-field col s2">
+                <input class="with-gap" name="movement_type" type="radio" value="C" />
+                <span>Crédito</span>
+            </label>
+        </div>
+
+        <div class="input-field col s12">
+            <input id="description" type="text" class="validate" name="description">
+            <label for="description">Descrição</label>
+        </div>
+        <div>
+            <h5 class="teal-text darken-4-text" style="font-weight:lighter;">Método de pagamento</h5>
+            <div class="divider"></div>
+            <div class="row">
+                <label class="input-field col s2">
+                    <input class=" with-gap" name="pay_method" type="radio" value="M" />
+                    <span>Dinheiro</span>
+                </label>
+                <label class="input-field col s2">
+                    <input class="with-gap" name="pay_method" type="radio" value="C" />
+                    <span>Cartão de Crédito</span>
+                </label>
+                <div class="input-field col s6">
+                    <select name="id_credit_card" class="card">
+                        <option value="" disabled selected>Selecione o cartão</option>
+                        <option value="cc1">Cartão 1</option>
+                        <option value="cc2">Cartão 2</option>
+                        <option value="cc3">Cartão 3</option>
+                        <option value="cc4">Cartão 4</option>
+                    </select>
+                    <label>Cartão</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="installments" type="text" class="validate" name="installments">
+                    <label for="installments">Parcelas</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="value" type="text" class="validate" name="value">
+                <label for="value">Valor</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" class="datepicker" name="pay_date">
+                <label for="value">Data de Pagamento</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select name="id_movement_class" class="class">
+                    <option value="" disabled selected>Selecione a Classe</option>
+                    <option value="c1">Classe 1</option>
+                    <option value="c2">Classe 2</option>
+                    <option value="c3">Classe 3</option>
+                    <option value="c4">Classe 4</option>
+                </select>
+                <label>Classe</label>
+            </div>
+            <div class="input-field col s6">
+                <select name="id_movement_subclass" class="subclass">
+                    <option value="" disabled selected>Selecione a Subclasse</option>
+                    <option value="sc1">Sub-classe 1</option>
+                    <option value="sc2">Sub-classe 2</option>
+                    <option value="sc3">Sub-classe 3</option>
+                    <option value="sc4">Sub-classe 4</option>
+                </select>
+                <label>Sub-classe</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
