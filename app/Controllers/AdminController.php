@@ -14,18 +14,40 @@ class AdminController extends Action
 
     public function addClass()
     {
-
-        $this->render('addClass', 'layoutMaterialize');
+        $this->render('add_class', 'layoutMaterialize');
     }
     public function addSubClass()
     {
-
-        $this->render('addSubClass', 'layoutMaterialize');
+        $this->render('add_subclass', 'layoutMaterialize');
     }
     public function addCard()
     {
+        $this->render('add_card', 'layoutMaterialize');
+    }
+    public function listCards()
+    {
+        $card = Container::getModel('CreditCard');
+        $cards = $card->getAllCards();
+        $this->viewData->cards = $cards;
+    }
+    private function setCard()
+    {
+        $card = Container::getModel('CreditCard');
+        $card->__set('card_number', $_POST['card_number']);
+        $card->__set('card_operator', $_POST['card_operator']);
+        $card->__set('card_pay_date', $_POST['card_pay_date']);
+        $card->__set('card_close_date', $_POST['card_close_date']);
+        $card->__set('card_limit', $_POST['card_limit']);
+        $card->addCreditCard();
 
-        $this->render('addCard', 'layoutMaterialize');
+        header('Location: list_cards');
+    }
+
+    public function saveCard()
+    {
+        if (!empty($_POST['card_number'])) {
+            $this->setCard();
+        }
     }
 
     public function getData()

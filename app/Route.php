@@ -17,20 +17,30 @@ class Route extends \MF\Init\Bootstrap
             'controller' => 'AccountController',
             'action' => 'addAccount'
         );
-        $routes['addClass'] = array(
-            'route' => '/addClass',
+        $routes['add_class'] = array(
+            'route' => '/add_class',
             'controller' => 'AdminController',
             'action' => 'addClass'
         );
-        $routes['addSubClass'] = array(
-            'route' => '/addSubClass',
+        $routes['add_subclass'] = array(
+            'route' => '/add_subclass',
             'controller' => 'AdminController',
             'action' => 'addSubClass'
         );
-        $routes['addCard'] = array(
-            'route' => '/addCard',
+        $routes['add_card'] = array(
+            'route' => '/add_card',
             'controller' => 'AdminController',
             'action' => 'addCard'
+        );
+        $routes['list_cards'] = array(
+            'route' => '/list_cards',
+            'controller' => 'AdminController',
+            'action' => 'listCards'
+        );
+        $routes['saveCard'] = array(
+            'route' => '/saveCard',
+            'controller' => 'AdminController',
+            'action' => 'saveCard'
         );
         $routes['getData'] = array(
             'route' => '/getData',

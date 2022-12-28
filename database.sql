@@ -26,5 +26,6 @@ CREATE TABLE tb_credit_card(
     card_number VARCHAR(20) NOT NULL,
     card_operator VARCHAR(20) NOT NULL,
     card_pay_date INT(2) NOT NULL,
-    card_close_date INT(2) NOT NULL
+    card_close_date INT(2) NOT NULL,
+    card_limit FLOAT(8, 2) NOT NULL
 );
