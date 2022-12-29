@@ -12,9 +12,35 @@ use App\Connection;
 class AdminController extends Action
 {
 
-    public function addClass()
+    public function addClasses()
     {
-        $this->render('add_class', 'layoutMaterialize');
+        $this->render('add_classes', 'layoutMaterialize');
+    }
+
+    public function listClasses()
+    {
+        $classes = Container::getModel('Classes');
+        $class = $classes->getAllClasses();
+        $this->viewData->classes = $class;
+
+        $this->render('list_classes', 'layoutMaterialize');
+    }
+
+    public function setClasses()
+    {
+        $classes = Container::getModel('Classes');
+        $classes->__set('class_name', $_POST['class_name']);
+        $classes->__set('class_description', $_POST['class_description']);
+        $classes->addClasses();
+
+        header('Location: list_classes');
+    }
+
+    public function saveClasses()
+    {
+        if (!empty($_POST['class_name'])) {
+            $this->setClasses();
+        }
     }
     public function addSubClass()
     {
@@ -24,11 +50,15 @@ class AdminController extends Action
     {
         $this->render('add_card', 'layoutMaterialize');
     }
+
+
     public function listCards()
     {
         $card = Container::getModel('CreditCard');
         $cards = $card->getAllCards();
         $this->viewData->cards = $cards;
+
+        $this->render('list_cards', 'layoutMaterialize');
     }
     private function setCard()
     {
@@ -49,6 +79,10 @@ class AdminController extends Action
             $this->setCard();
         }
     }
+
+
+
+
 
     public function getData()
     {

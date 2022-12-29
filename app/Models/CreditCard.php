@@ -7,7 +7,7 @@ use MF\Model\Model;
 class CreditCard extends Model
 {
 
-    private $idCreditCard;
+    private $idcredit_ard;
     private $card_number;
     private $card_operator;
     private $card_pay_date;

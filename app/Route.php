@@ -17,10 +17,20 @@ class Route extends \MF\Init\Bootstrap
             'controller' => 'AccountController',
             'action' => 'addAccount'
         );
-        $routes['add_class'] = array(
-            'route' => '/add_class',
+        $routes['add_classes'] = array(
+            'route' => '/add_classes',
             'controller' => 'AdminController',
-            'action' => 'addClass'
+            'action' => 'addClasses'
+        );
+        $routes['list_classes'] = array(
+            'route' => '/list_classes',
+            'controller' => 'AdminController',
+            'action' => 'listClasses'
+        );
+        $routes['save_classes'] = array(
+            'route' => '/save_classes',
+            'controller' => 'AdminController',
+            'action' => 'saveClasses'
         );
         $routes['add_subclass'] = array(
             'route' => '/add_subclass',

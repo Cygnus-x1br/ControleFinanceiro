@@ -15,11 +15,13 @@ CREATE TABLE tb_movements(
 );
 CREATE TABLE tb_movement_class(
     IDMOVEMENT_CLASS INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    class_description VARCHAR(30)
+    class_name VARCHAR(30),
+    class_description VARCHAR(60)
 );
 CREATE TABLE tb_movement_subclass(
     IDMOVEMENT_SUBCLASS INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    subclass_description VARCHAR(30)
+    subclass_name VARCHAR(30),
+    subclass_description VARCHAR(60)
 );
 CREATE TABLE tb_credit_card(
     IDCREDIT_CARD INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
