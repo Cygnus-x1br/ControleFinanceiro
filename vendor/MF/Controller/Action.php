@@ -12,7 +12,7 @@ abstract class Action
         $this->viewData = new \stdClass();
     }
 
-    protected function render($view, $layout)
+    protected function render($view, $layout = 'layoutMaterialize')
     {
 
         $this->viewData->page = $view;

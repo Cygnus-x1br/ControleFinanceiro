@@ -1,0 +1,25 @@
+<div class="container">
+
+    <div style="margin-top: 20px;">
+
+    </div>
+
+    <ul class="title row">
+        <li class="teal-text darken-4-text col m2">Nome Classe </li>
+        <li class="teal-text darken-4-text col m3">Nome da Sub-classe </li>
+        <li class="teal-text darken-4-text col m6">Descrição</li>
+        <li class="col m1"><a href="./add_subclass" class="btn-floating btn-large waves-effect waves-light lighten-3"><i class="material-icons">add</i></a></li>
+    </ul>
+    <?php
+    foreach ($this->viewData->subclasses as $subclass) { ?>
+        <ul class="row">
+            <li class="col m2"><?php foreach ($this->viewData->classes as $class) {
+                                    if ($class['IDMOVEMENT_CLASS'] == $subclass['ID_MOVEMENT_CLASS']) {
+                                        echo $class['class_name'];
+                                    }
+                                } ?> </li>
+            <li class="col m3"><?= $subclass['subclass_name'] ?> </li>
+            <li class="col m6"><?= $subclass['subclass_description'] ?></li>
+        </ul>
+    <?php } ?>
+</div>

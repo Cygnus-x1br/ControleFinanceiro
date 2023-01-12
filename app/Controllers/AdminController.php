@@ -12,9 +12,14 @@ use App\Connection;
 class AdminController extends Action
 {
 
+    public function cardMenu()
+    {
+        $this->render('card_menu');
+    }
+
     public function addClasses()
     {
-        $this->render('add_classes', 'layoutMaterialize');
+        $this->render('add_classes');
     }
 
     public function listClasses()
@@ -22,8 +27,7 @@ class AdminController extends Action
         $classes = Container::getModel('Classes');
         $class = $classes->getAllClasses();
         $this->viewData->classes = $class;
-
-        $this->render('list_classes', 'layoutMaterialize');
+        $this->render('list_classes');
     }
 
     public function setClasses()
@@ -42,45 +46,45 @@ class AdminController extends Action
             $this->setClasses();
         }
     }
+
     public function addSubClass()
     {
-        $this->render('add_subclass', 'layoutMaterialize');
-    }
-    public function addCard()
-    {
-        $this->render('add_card', 'layoutMaterialize');
+        $this->viewData->classes = $this->listClass();
+        $this->render('add_subclass');
     }
 
-
-    public function listCards()
+    public function listSubClasses()
     {
-        $card = Container::getModel('CreditCard');
-        $cards = $card->getAllCards();
-        $this->viewData->cards = $cards;
-
-        $this->render('list_cards', 'layoutMaterialize');
-    }
-    private function setCard()
-    {
-        $card = Container::getModel('CreditCard');
-        $card->__set('card_number', $_POST['card_number']);
-        $card->__set('card_operator', $_POST['card_operator']);
-        $card->__set('card_pay_date', $_POST['card_pay_date']);
-        $card->__set('card_close_date', $_POST['card_close_date']);
-        $card->__set('card_limit', $_POST['card_limit']);
-        $card->addCreditCard();
-
-        header('Location: list_cards');
+        $subclasses = Container::getModel('SubClasses');
+        $subclass = $subclasses->getAllSubClasses();
+        $this->viewData->subclasses = $subclass;
+        $this->viewData->classes = $this->listClass();
+        $this->render('list_subclasses');
     }
 
-    public function saveCard()
+    public function setSubClasses()
     {
-        if (!empty($_POST['card_number'])) {
-            $this->setCard();
+        $classes = Container::getModel('SubClasses');
+        $classes->__set('subclass_name', $_POST['subclass_name']);
+        $classes->__set('subclass_description', $_POST['subclass_description']);
+        $classes->__set('id_movement_class', $_POST['id_movement_class']);
+        $classes->addSubClasses();
+
+        header('Location: list_subclasses');
+    }
+
+    public function saveSubClasses()
+    {
+        if (!empty($_POST['subclass_name'])) {
+            $this->setSubClasses();
         }
     }
 
-
+    private function listClass()
+    {
+        $classes = Container::getModel('Classes');
+        return $classes->getAllClasses();
+    }
 
 
 

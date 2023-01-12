@@ -25,26 +25,29 @@
             <div class="divider"></div>
             <div class="row">
                 <label class="input-field col s2">
-                    <input class=" with-gap" name="pay_method" type="radio" value="M" />
+                    <input class="with-gap" name="pay_method" type="radio" value="M" />
                     <span>Dinheiro</span>
                 </label>
                 <label class="input-field col s2">
-                    <input class="with-gap" name="pay_method" type="radio" value="C" />
+                    <input id="credit-card" class="with-gap" name="pay_method" type="radio" value="C" />
                     <span>Cartão de Crédito</span>
                 </label>
-                <div class="input-field col s6">
-                    <select name="id_credit_card" class="card">
-                        <option value="" disabled selected>Selecione o cartão</option>
-                        <option value="cc1">Cartão 1</option>
-                        <option value="cc2">Cartão 2</option>
-                        <option value="cc3">Cartão 3</option>
-                        <option value="cc4">Cartão 4</option>
-                    </select>
-                    <label>Cartão</label>
-                </div>
-                <div class="input-field col s2">
-                    <input id="installments" type="text" class="validate" name="installments">
-                    <label for="installments">Parcelas</label>
+                <div id="card">
+                    <div class="input-field col s6">
+                        <select name="id_credit_card" class="card">
+                            <option value="" disabled selected>Selecione o cartão</option>
+                            <?php foreach ($this->viewData->cards as $card) {
+                                $card_show = $card['card_operator'] . '-' . substr($card['card_number'], -4, 4) ?>
+                                <option value=""><?= $card_show ?></option>
+
+                            <?php } ?>
+                        </select>
+                        <label>Cartão</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="installments" type="text" class="validate" name="installments">
+                        <label for="installments">Parcelas</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,3 +88,14 @@
         </button>
     </form>
 </div>
+
+<script>
+    let pay_method = document.getElementsByName('pay_method');
+    let radio = document.getElementById('card');
+    pay_method[0].addEventListener('click', () => {
+        radio.style.display = 'none';
+    })
+    pay_method[1].addEventListener('click', () => {
+        radio.style.display = 'block';
+    })
+</script>

@@ -1,0 +1,22 @@
+<div class="container">
+    <h3 class="teal-text darken-4-text  center-align" style="font-weight:lighter;">Listagem de cartões cadastrados</h3>
+
+    <ul class="title row">
+        <li class="teal-text darken-4-text col m3">Numero</li>
+        <li class="teal-text darken-4-text col m2">Bandeira </li>
+        <li class="teal-text darken-4-text col m2">Vencimento </li>
+        <li class="teal-text darken-4-text col m2">Fechamento </li>
+        <li class="teal-text darken-4-text col m3">Limite </li>
+    </ul>
+
+    <?php
+    foreach ($this->viewData->cards as $card) { ?>
+        <ul class="row">
+            <li class="col m3"><?= $card['card_number'] ?> </li>
+            <li class="col m2"><?= $card['card_operator'] ?> </li>
+            <li class="col m2"><?= $card['card_pay_date'] ?> </li>
+            <li class="col m2"><?= $card['card_close_date'] ?> </li>
+            <li class="col m3"><?= $card['card_limit'] ?> </li>
+        </ul>
+    <?php }; ?>
+</div>

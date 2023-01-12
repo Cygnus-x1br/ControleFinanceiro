@@ -12,15 +12,22 @@ use App\Connection;
 class AccountController extends Action
 {
 
-    public function addAccount()
+    public function addMovement()
     {
 
-        $this->render('addAccount', 'layoutMaterialize');
+        $this->viewData->cards = $this->listCards();
+        $this->render('addMovement', 'layoutMaterialize');
     }
 
     public function getDataAccount()
     {
         echo '<pre>';
         print_r($_POST);
+    }
+
+    private function listCards()
+    {
+        $card = Container::getModel('CreditCard');
+        return $card->getAllCards();
     }
 }

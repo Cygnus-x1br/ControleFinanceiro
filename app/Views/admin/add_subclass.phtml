@@ -3,23 +3,24 @@
     <h3 class="teal-text darken-4-text" style="font-weight:lighter;">Inclui nova Sub-Classe</h3>
 
     <div class="row">
-        <form action="getData" method="post">
+        <form action="save_subclasses" method="post">
             <div class="input-field col s12">
-                <select name="class">
+                <select name="id_movement_class">
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <?php foreach ($this->viewData->classes as $class) { ?>
+                        <option value="<?= $class['IDMOVEMENT_CLASS'] ?>"><?= $class['class_name'] ?></option>
+                    <?php } ?>
+
                 </select>
                 <label>Classe</label>
             </div>
             <div class="input-field col s12">
-                <input id="movement_class" type="text" class="validate" name="movement_class">
-                <label for="movement_class">Nome da Sub-Classe</label>
+                <input id="subclass_name" type="text" class="validate" name="subclass_name">
+                <label for="subclass_name">Nome da Sub-Classe</label>
             </div>
             <div class="input-field col s12">
-                <input id="class_description" type="text" class="validate" name="class_description">
-                <label for="class_description">Descrição</label>
+                <input id="subclass_description" type="text" class="validate" name="subclass_description">
+                <label for="subclass_description">Descrição</label>
             </div>
             <button class="btn waves-effect waves-light" type="submit">Submit
                 <i class="material-icons right">send</i>

@@ -12,10 +12,15 @@ class Route extends \MF\Init\Bootstrap
             'controller' => 'IndexController',
             'action' => 'index'
         );
-        $routes['addAccount'] = array(
-            'route' => '/addAccount',
+        $routes['card_menu'] = array(
+            'route' => '/card_menu',
+            'controller' => 'AdminController',
+            'action' => 'cardMenu'
+        );
+        $routes['add_movement'] = array(
+            'route' => '/add_movement',
             'controller' => 'AccountController',
-            'action' => 'addAccount'
+            'action' => 'addMovement'
         );
         $routes['add_classes'] = array(
             'route' => '/add_classes',
@@ -37,19 +42,29 @@ class Route extends \MF\Init\Bootstrap
             'controller' => 'AdminController',
             'action' => 'addSubClass'
         );
+        $routes['list_subclasses'] = array(
+            'route' => '/list_subclasses',
+            'controller' => 'AdminController',
+            'action' => 'listSubClasses'
+        );
+        $routes['save_subclasses'] = array(
+            'route' => '/save_subclasses',
+            'controller' => 'AdminController',
+            'action' => 'saveSubClasses'
+        );
         $routes['add_card'] = array(
             'route' => '/add_card',
-            'controller' => 'AdminController',
+            'controller' => 'CardController',
             'action' => 'addCard'
         );
         $routes['list_cards'] = array(
             'route' => '/list_cards',
-            'controller' => 'AdminController',
+            'controller' => 'CardController',
             'action' => 'listCards'
         );
         $routes['saveCard'] = array(
             'route' => '/saveCard',
-            'controller' => 'AdminController',
+            'controller' => 'CardController',
             'action' => 'saveCard'
         );
         $routes['getData'] = array(

@@ -11,6 +11,9 @@ CREATE TABLE tb_movements(
     pay_date DATE NOT NULL,
     ID_MOVEMENT_CLASS INT NOT NULL,
     ID_MOVEMENT_SUBCLASS INT NOT NULL,
+);
+CREATE TABLE movement_card(
+    ID_MOVEMENT INT NOT NULL,
     ID_CREDIT_CARD INT NOT NULL
 );
 CREATE TABLE tb_movement_class(
@@ -21,7 +24,8 @@ CREATE TABLE tb_movement_class(
 CREATE TABLE tb_movement_subclass(
     IDMOVEMENT_SUBCLASS INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     subclass_name VARCHAR(30),
-    subclass_description VARCHAR(60)
+    subclass_description VARCHAR(60),
+    ID_MOVEMENT_CLASS INT NOT NULL
 );
 CREATE TABLE tb_credit_card(
     IDCREDIT_CARD INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

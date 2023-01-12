@@ -1,2 +1,19 @@
-<?php
-print_r($this->viewData->classes);
+<div class="container">
+
+    <div style="margin-top: 20px;">
+
+    </div>
+
+    <ul class="title row">
+        <li class="teal-text darken-4-text col m3">Nome da classe </li>
+        <li class="teal-text darken-4-text col m8">Descrição</li>
+        <li class="col m1"><a href="./add_classes" class="btn-floating btn-large waves-effect waves-light lighten-3"><i class="material-icons">add</i></a></li>
+    </ul>
+    <?php
+    foreach ($this->viewData->classes as $class) { ?>
+        <ul class="row">
+            <li class="col m3"><?= $class['class_name'] ?> </li>
+            <li class="col m9"><?= $class['class_description'] ?></li>
+        </ul>
+    <?php } ?>
+</div>
