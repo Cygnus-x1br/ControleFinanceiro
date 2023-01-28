@@ -16,6 +16,8 @@ class AccountController extends Action
     {
 
         $this->viewData->cards = $this->listCards();
+        $this->viewData->classes = $this->listClasses();
+        $this->viewData->subclasses = $this->listSubClasses();
         $this->render('addMovement', 'layoutMaterialize');
     }
 
@@ -29,5 +31,15 @@ class AccountController extends Action
     {
         $card = Container::getModel('CreditCard');
         return $card->getAllCards();
+    }
+    private function listClasses()
+    {
+        $classes = Container::getModel('Classes');
+        return $classes->getAllClasses();
+    }
+    private function listSubClasses()
+    {
+        $subclasses = Container::getModel('SubClasses');
+        return $subclasses->getAllSubClasses();
     }
 }

@@ -62,25 +62,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <!-- <div class="input-field col s6">
                 <select name="id_movement_class" class="class">
                     <option value="" disabled selected>Selecione a Classe</option>
-                    <option value="c1">Classe 1</option>
-                    <option value="c2">Classe 2</option>
-                    <option value="c3">Classe 3</option>
-                    <option value="c4">Classe 4</option>
+                    <?php foreach ($this->viewData->classes as $class) { ?>
+                        <option value="<?= $class['IDMOVEMENT_CLASS'] ?>"><?= $class['class_name'] ?></option>
+                    <?php } ?>
                 </select>
                 <label>Classe</label>
-            </div>
+            </div> -->
             <div class="input-field col s6">
-                <select name="id_movement_subclass" class="subclass">
+                <select id="select_subclass" name="id_movement_subclass" class="subclass">
                     <option value="" disabled selected>Selecione a Subclasse</option>
-                    <option value="sc1">Sub-classe 1</option>
-                    <option value="sc2">Sub-classe 2</option>
-                    <option value="sc3">Sub-classe 3</option>
-                    <option value="sc4">Sub-classe 4</option>
+                    <?php foreach ($this->viewData->subclasses as $subclass) { ?>
+                        <option value="<?= $subclass['IDMOVEMENT_SUBCLASS'] ?>"><?= $subclass['subclass_name'] ?></option>
+                    <?php } ?>
                 </select>
                 <label>Sub-classe</label>
+            </div>
+            <div class="show-classes">
+                <?php foreach ($this->viewData->classes as $class) { ?>
+                    <p> </p>
+                <?php } ?>
             </div>
         </div>
         <button class="btn waves-effect waves-light" type="submit">Submit
@@ -90,6 +93,7 @@
 </div>
 
 <script>
+    let subclass_value;
     let pay_method = document.getElementsByName('pay_method');
     let radio = document.getElementById('card');
     pay_method[0].addEventListener('click', () => {
@@ -97,5 +101,10 @@
     })
     pay_method[1].addEventListener('click', () => {
         radio.style.display = 'block';
+    })
+    let subclass_select = document.getElementById('select_subclass');
+    subclass_select.addEventListener('change', () => {
+        subclass_value = subclass_select.value;
+        console.log(subclass_value);
     })
 </script>
